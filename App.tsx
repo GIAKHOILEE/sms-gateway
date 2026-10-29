@@ -1,5 +1,6 @@
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import {
+  Image,
   StatusBar,
   StyleSheet,
   Text,
@@ -573,11 +574,17 @@ function App(): React.JSX.Element {
 
       {/* Top Header */}
       <View style={styles.header}>
-        <View>
-          <Text style={styles.headerTitle}>Trạm Gửi SMS Cá Nhân</Text>
-          <Text style={styles.headerSubtitle}>
-            Thiết bị: {deviceId || 'Chưa đặt tên'}
-          </Text>
+        <View style={styles.headerBrandRow}>
+          <Image
+            source={require('./src/assets/app_logo.png')}
+            style={styles.headerLogo}
+          />
+          <View>
+            <Text style={styles.headerTitle}>Trạm Gửi SMS Cá Nhân</Text>
+            <Text style={styles.headerSubtitle}>
+              Thiết bị: {deviceId || 'Chưa đặt tên'}
+            </Text>
+          </View>
         </View>
         <View
           style={[
@@ -779,6 +786,16 @@ const styles = StyleSheet.create({
     backgroundColor: '#1e293b',
     borderBottomWidth: 1,
     borderBottomColor: '#334155',
+  },
+  headerBrandRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+  },
+  headerLogo: {
+    width: 36,
+    height: 36,
+    borderRadius: 9,
+    marginRight: 10,
   },
   headerTitle: {
     fontSize: 17,
